@@ -1,9 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class Player : MonoBehaviour
 {
+    public GameObject loseScreen;
+    public TextMeshProUGUI healthDisplay;
     Rigidbody2D rb;
     public float speed;
     public int health;
@@ -12,6 +17,8 @@ public class Player : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        
+        healthDisplay.text = health.ToString();
     }
 
     // Update is called once per frame
@@ -27,8 +34,11 @@ public class Player : MonoBehaviour
     public void TakeDamage(int dmgAmount)
     {
         health--;
-        if(health <= 0)
+        
+        healthDisplay.text = health.ToString();
+        if (health <= 0)
         {
+            loseScreen.SetActive(true);
             Destroy(gameObject);
         }
     }
