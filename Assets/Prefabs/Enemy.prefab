@@ -101,6 +101,7 @@ MonoBehaviour:
   minSpeed: 5
   maxSpeed: 15
   damage: 1
+  OnDeathExplosion: {fileID: 2137107882200676745, guid: ebe97447bb935e74b8e19f5ee0ecdf68, type: 3}
 --- !u!61 &501771231402734789
 BoxCollider2D:
   m_ObjectHideFlags: 0

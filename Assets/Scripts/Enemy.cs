@@ -10,6 +10,8 @@ public class Enemy : MonoBehaviour
     Player playerScript;
 
     public int damage;
+
+    public GameObject OnDeathExplosion;
     // Start is called before the first frame update
     void Start()
     {
@@ -33,16 +35,22 @@ public class Enemy : MonoBehaviour
             print("We hit the player");
             playerScript.TakeDamage(damage);
             print(playerScript.health);
-           // Destroy(gameObject);
+            // Destroy(gameObject);
+
+
         }
 
-        if(hitObject.tag == "Ground")
+        if (hitObject.tag == "Ground")
         {
            // Destroy(gameObject);
         }
         if (hitObject)
         {
+
             Destroy(gameObject);
+            Instantiate(OnDeathExplosion, transform.position, Quaternion.identity);
+
+
         }
     }
 }
