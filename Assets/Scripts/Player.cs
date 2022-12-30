@@ -19,7 +19,8 @@ public class Player : MonoBehaviour
     public float startDifficultyTimer;
     public float difficultyScale;
     public float increaseDifficulty;
-
+    public GameObject coin;
+    public Transform[] spawnPoints;
     // Start is called before the first frame update
     void Start()
     {
@@ -33,8 +34,13 @@ public class Player : MonoBehaviour
         //setting a difficulty scale for enemy movement speed and spawn timer
         if(difficultyTimer <= 0)
         {
-            difficultyScale+=increaseDifficulty;
+            //increase difficulty
+            difficultyScale +=increaseDifficulty;
             difficultyTimer = startDifficultyTimer; //every startDifficultyTimer(seconds), increase difficulty scale
+
+            //spawn a reward coin
+            Transform randomSpawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
+            Instantiate(coin, randomSpawnPoint.position, Quaternion.identity);
         }
         else
         {

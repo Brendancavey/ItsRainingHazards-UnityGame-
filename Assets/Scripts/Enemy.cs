@@ -35,23 +35,23 @@ public class Enemy : MonoBehaviour
             print("We hit the player");
             playerScript.TakeDamage(damage);
             print(playerScript.health);
-            // Destroy(gameObject);
+            EnemyDeath();
 
 
         }
 
         if (hitObject.tag == "Ground")
         {
-            // Destroy(gameObject);
-            maxSpeed++;
+            EnemyDeath();
         }
         if (hitObject)
         {
 
-            Destroy(gameObject);
-            Instantiate(OnDeathExplosion, transform.position, Quaternion.identity);
-
-
         }
+    }
+    void EnemyDeath()
+    {
+        Destroy(gameObject);
+        Instantiate(OnDeathExplosion, transform.position, Quaternion.identity);
     }
 }
