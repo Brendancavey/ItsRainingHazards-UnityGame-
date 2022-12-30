@@ -13,6 +13,7 @@ public class Spawner : MonoBehaviour
     public float decreaseSpawnTime;
 
     public GameObject player;
+    public Player playerScript;
     // Start is called before the first frame update
     void Start()
     {
@@ -36,7 +37,7 @@ public class Spawner : MonoBehaviour
                 //progressively decrease the time between enemy spawn to increase difficulty
                 if (startSpawnTime > minSpawnTime)
                 {
-                    startSpawnTime -= decreaseSpawnTime;
+                    startSpawnTime -= (decreaseSpawnTime * playerScript.difficultyScale);
                 }
 
                 //reset spawn time
@@ -49,4 +50,5 @@ public class Spawner : MonoBehaviour
         }
         
     }
+
 }

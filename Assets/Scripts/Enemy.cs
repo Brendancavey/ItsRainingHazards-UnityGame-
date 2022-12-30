@@ -5,7 +5,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public float minSpeed, maxSpeed;
-    float speed;
+    public float speed;
 
     Player playerScript;
 
@@ -15,10 +15,10 @@ public class Enemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //setting fall down speed
-        speed = Random.Range(minSpeed, maxSpeed);
-
         playerScript = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        //setting fall down speed
+        speed = Random.Range(minSpeed, maxSpeed) * playerScript.difficultyScale;
+        
     }
 
     // Update is called once per frame
@@ -42,7 +42,8 @@ public class Enemy : MonoBehaviour
 
         if (hitObject.tag == "Ground")
         {
-           // Destroy(gameObject);
+            // Destroy(gameObject);
+            maxSpeed++;
         }
         if (hitObject)
         {
