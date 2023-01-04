@@ -21,11 +21,13 @@ public class Player : MonoBehaviour
     public float increaseDifficulty;
     public GameObject coin;
     public Transform[] spawnPoints;
+    public CameraShake camera;
     // Start is called before the first frame update
     void Start()
     {
         playerAnimation = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
+        camera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraShake>();
         
         healthDisplay.text = health.ToString();
     }
@@ -78,6 +80,7 @@ public class Player : MonoBehaviour
 
     public void TakeDamage(int dmgAmount)
     {
+        camera.Shake();
         health--;
         
         healthDisplay.text = health.ToString();
