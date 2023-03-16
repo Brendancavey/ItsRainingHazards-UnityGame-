@@ -20,3 +20,15 @@ in order for objects within the game to interact with each other.
 <h2>Language Used</h2>
 <li>C#</li>
 
+<h2>Screenshots</h2>
+<p align="center">Falling Projectiles</p>
+
+![](Screenshots/screenshot1.JPG)
+
+<p align="center">Particles Effects</p>
+
+![](Screenshots/screenshot2.JPG)
+
+<p align="center">Gameover Screen</p>
+
+![](Screenshots/screenshot3.JPG)
